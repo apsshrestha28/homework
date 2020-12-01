@@ -1,0 +1,31 @@
+<% if @post.errors.any? %>
+  <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%# @post is accessed from new action of posts controller %> 
+<div class = "post-form">
+  <%= form_for @post do |f| %> 
+    <div>
+      <%= f.label :title %>
+      </br>
+      <%= f.text_area(
+        :title,
+        cols:50
+       )%> 
+    </div>
+    <div>
+      <%= f.label :body %>
+      </br>
+      <%= f.text_area(
+        :body,
+        cols: 50
+        )%>
+    </div>
+    <%= f.submit :class => "btn btn-outline-primary" %>
+  <% end %>
+</div>
+
