@@ -1,0 +1,8 @@
+<div class="contain">
+      <% @posts.each do |post| %> <%# @posts is accessed from posts controller%>
+        <div class="item">
+          <h2><%= link_to post.title,post_path(post)%></h2>
+          <span><%= post.body %></span>
+          </div>    
+      <% end %>    
+</div>

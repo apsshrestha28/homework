@@ -1,0 +1,28 @@
+
+#nav_title {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.contain {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  padding:1px;
+  margin-left: 20px;
+  
+}
+.contain .item {
+  flex: 0 0 calc(33% - 1em);
+  border:1px solid lightgrey;
+  margin: 5px;
+  padding:2px;
+}
+.post-form {
+  margin:20px;
+
+}
+
+.show-page{
+  margin:20px;
+}

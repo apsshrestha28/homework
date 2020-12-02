@@ -1,0 +1,60 @@
+<div class="show-page">
+  <h1><%= @post.title %></h1>
+  <p><%= @post.body %></p>
+
+  <h6>
+  Created by: <%= @post.user&.full_name%>
+  <!-- '&.' Safe Navigation Operator: if object is not found it will not creash the page or app.Avoiding undefined method for nil:NilClass -->
+  <%# comments %>
+
+  </h6>
+
+  <% if @post.updated_at > @post.created_at %>
+    <p>Updated <%= time_ago_in_words(@post.updated_at) %> ago</p>
+  <% else %>
+    <p>Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
+  <% end %>
+
+  <% if can?(:crud,@post)%>
+    <button type="button" class="btn btn-outline-primary"><%= link_to "Edit", edit_post_path(@post) %></button>
+    <button type="button" class="btn btn-outline-primary"><%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %></button>
+  <%end%>
+
+  </br></br>
+  <p>Comment</p>
+  <%= form_with(model: [@post, @comment], local: true) do |f| %>
+    <%= f.text_area(
+      :body,
+      cols: 80,
+      rows: 3,
+      placeholder: "What's on your mind?"
+    )%>
+    </br>
+    <%= f.submit "Submit", :class => "btn btn-outline-primary" %>
+    </br></br>
+  <% end %>
+
+
+  <% @comments.each do |a| %>
+    <%= a.body %></br>
+    <%# post_comment_path(@post, a) => "/posts/:post_id/comments/:id" %>
+
+    <small>
+      Commented by: <%= a.user&.full_name%>
+      <%= time_ago_in_words(a.created_at)%> ago 
+    </small>
+
+    <%if can?(:crud,a) %>
+      <%= link_to(
+        "Delete",
+        post_comment_path(@post, a),
+        method: :delete,
+        data: {
+          confirm: "are you sure you want to delete this comment?"
+        }
+      )%>  
+    <% end %> 
+    </br></br>
+  <% end %>  
+  
+</div>
