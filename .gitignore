@@ -248,3 +248,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux,node,rails
+
+/blog_on_rails_2/tmp/*
+/blog_on_rails/tmp/*
+/blog_on_rails_2/lib
+Gemfile.lock 
+yarn.lock
