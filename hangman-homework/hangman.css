@@ -1,0 +1,45 @@
+.letterTile {
+  position: absolute;
+  font-size: 0.9em;
+  width: 0.90em;
+  height: 1.05em;
+  border: 1px solid blue;
+  border-radius: .3em;
+  -moz-border-radius: .3em;
+  color: #22283c;
+  background-color: #f0f0f4;
+  -webkit-box-shadow: 4px 4px 3px 0 rgba(100,100,100,.5);
+  -moz-box-shadow: 4px 4px 3px 0 rgba(100,100,100,.5);
+  box-shadow: 4px 4px 3px 0 rgba(100,100,100,.5);
+  text-align:center;
+  cursor: pointer;
+}
+#gameShell{
+  font-size:1em;
+  position: relative;
+  display:none;
+  border:2px solid blue;
+  border-radius:8px;
+  -moz-border-radius:8px;
+  padding:100px;
+
+}
+div {
+  display:flexbox;
+}
+#hangman{
+  font-size: 30px;
+  color:blue;
+  margin-top: 20px;
+  margin-left: 160px;
+}
+.name {
+  font-size: 10px;
+  padding-left: 0px;
+}
+#hangImage {
+  width:376.4px;
+  height:230.9px;
+  padding:2px;
+
+}
